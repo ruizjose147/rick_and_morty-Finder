@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Paginacion = ({ prev, next, onPrevius, onNext }) => {
+const Paginacion = ({ onPrevius, onNext, info }) => {
 
     const handlePrevius = () => {
         onPrevius();
@@ -14,7 +14,7 @@ const Paginacion = ({ prev, next, onPrevius, onNext }) => {
         <nav>
             <ul className="pagination justify-content-center">
                 {
-                    prev ?
+                    info.prev ?
                         <li className="page-item">
                             <button className="btn btn-info" onClick={handlePrevius}>Previous</button>
                         </li>
@@ -22,15 +22,13 @@ const Paginacion = ({ prev, next, onPrevius, onNext }) => {
                         null
                 }
                 {
-                    next ?
+                    info.next ?
                         <li className="page-item">
                             <button className="btn btn-info" onClick={handleNext}>Next</button>
                         </li>
                         :
                         null
                 }
-
-
             </ul>
         </nav>
     )

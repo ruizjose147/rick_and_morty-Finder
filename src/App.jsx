@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Formulario from "./components/Formulario";
 import Renderizar from "./components/Renderizar";
-import Paginacion from "./components/Paginacion";
+//import Paginacion from "./components/Paginacion";
 //import {setInfo} from "./components/Renderizar";
 
 const App = () => {
@@ -28,9 +28,7 @@ const App = () => {
             >
                 Reiniciar
             </button>
-            <Paginacion />
-            <Renderizar nombrePersonaje={nombrePersonaje}/>
-            <Paginacion />
+            <Renderizar nombrePersonaje={nombrePersonaje} />
         </div>
     )
 }
