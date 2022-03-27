@@ -1,8 +1,9 @@
 //import { useFormulario } from '../hooks/useFormulario'
 import { useState } from "react";
 import React from "react";
+import Swal from "sweetalert2";
 
-function Formulario() {
+const Formulario = ({setNombrePersonaje}) => {
 
     const initialState = {
         nombre: '',
@@ -10,7 +11,7 @@ function Formulario() {
 
     const [inputs, setInputs] = useState(initialState);
 
-    const {nombre} = inputs
+    const {nombre} = inputs;
 
     const handleChange = (e) => {
         const { name, value, checkhed, type } = e.target
@@ -24,18 +25,22 @@ function Formulario() {
     const reset = () => {
         setInputs(initialState)
     }
-    
-    /*const [inputs, handleChange, reset] = useFormulario({
-        nombre: ''
-    })*/
-
-    
 
     const handleSubmit = e => {
         e.preventDefault()
-        console.log(nombre)
+        
 
-        reset()
+        if(!nombre.trim()){
+            return Swal.fire({
+                title: 'Error!',
+                text: 'No puede estar vacio',
+                icon:'error'
+            })
+        }
+
+        setNombrePersonaje(nombre.trim().toLowerCase());
+        reset();
+        console.log(nombre);
     }
 
   return (
@@ -47,7 +52,7 @@ function Formulario() {
         onChange={handleChange}
         name="nombre" //coloca el nombre en la propiedad del useFormulario
         />
-        <button type='submit' className='btn btn-info' >
+        <button type='submit' className='btn btn-warning' >
             Buscar
         </button>
     </form>
