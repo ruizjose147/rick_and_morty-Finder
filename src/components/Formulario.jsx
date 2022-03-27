@@ -50,7 +50,7 @@ const Formulario = ({setNombrePersonaje}) => {
         className='form-control mb-2'
         value={nombre}
         onChange={handleChange}
-        name="nombre" //coloca el nombre en la propiedad del useFormulario
+        name="nombre"
         />
         <button type='submit' className='btn btn-warning' >
             Buscar

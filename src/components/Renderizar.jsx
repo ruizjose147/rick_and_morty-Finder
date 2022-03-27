@@ -7,10 +7,13 @@ const Renderizar = ({ nombrePersonaje }) => {
 
     const [personajes, setPersonajes] = useState([]);
     const [loading, setLoading] = useState(false);
+    const [info, setInfo] = useState({});
 
     useEffect(() => {
         consumirApi(nombrePersonaje)
     },[nombrePersonaje]);
+
+    
 
     const consumirApi = async (nombre) => {
         setLoading(true);
@@ -28,6 +31,9 @@ const Renderizar = ({ nombrePersonaje }) => {
             const datos = await res.json()
             console.log(datos.results)
             setPersonajes(datos.results);
+
+            setInfo(datos.info);
+        
         }catch(error){
             console.log(error)
         }finally{
