@@ -26,7 +26,7 @@ const App = () => {
                 className="btn btn-success mt-2"
                 onClick={() => setNombrePersonaje("")}
             >
-                Reiniciar
+                Inicio
             </button>
             <Renderizar nombrePersonaje={nombrePersonaje} />
         </div>
